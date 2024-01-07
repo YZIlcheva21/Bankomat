@@ -1,7 +1,1 @@
-﻿  main-menu.cpp
-C:\Users\krist\Desktop\Bankomat\Source\main\main\main-menu.cpp(1,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-C:\Users\krist\Desktop\Bankomat\Source\main\main\main-menu.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-  (compiling source file 'main-menu.cpp')
-  
-C:\Users\krist\Desktop\Bankomat\Source\main\main\main-menu.cpp(11,17): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-  main.vcxproj -> C:\Users\krist\Desktop\Bankomat\Source\main\x64\Debug\main.exe
+﻿  main.vcxproj -> C:\Users\krist\Desktop\Bankomat\Source\main\x64\Debug\main.exe
