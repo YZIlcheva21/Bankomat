@@ -41,7 +41,6 @@
 ## 🖥️ Technologies used <a name="technologies"></a>
 - <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Visual_Studio_Icon_2022.svg/1200px-Visual_Studio_Icon_2022.svg.png" width="20" alt="Visual Studio 2022 Logo"> Visual Studio 2022
 - <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" width="20" alt="GitHub Logo"> GitHub
-- <img src="https://www.freepnglogos.com/uploads/download-instagram-png-logo-20.png"> Instagram
 - <img src="https://www.freepnglogos.com/uploads/download-instagram-png-logo-20.png" width="20" alt="Instagram logo"> Instagram
 - <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Microsoft_Office_Word_%282019%E2%80%93present%29.svg/2203px-Microsoft_Office_Word_%282019%E2%80%93present%29.svg.png" width="20" alt="MS Word Logo"> MS Word
 - <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Microsoft_Office_Excel_%282019%E2%80%93present%29.svg/2203px-Microsoft_Office_Excel_%282019%E2%80%93present%29.svg.png" width="20" alt="MS Excel Logo"> MS Excel
