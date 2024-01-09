@@ -8,7 +8,7 @@
 
 using namespace std;
 const int consoleWidth = 80;
-
+int userBalance = 10000;
 
 
 void outputPosition(int x, int y)
@@ -70,21 +70,126 @@ void registerUser() {
 	}
 }
 
-void app(const string& username) {
-	system("cls");
-	centerText("Welcome, " + username + "!");
-	cout << "\n1. My Balance" << endl;
-	cout << "2. My Will" << endl;
-	cout << "3. Transactions" << endl;
-	cout << "0. Logout" << endl;
+void balance() {
+	system("CLS");
+	cout << "Your Current Balance: " << userBalance << " lv.";
 
 	while (true) {
 		if (GetAsyncKeyState(VK_ESCAPE) & 0x8000) {
 			cout << "Esc key pressed. Exiting..." << std::endl;
 			system("cls");
+			break;
+		}
+	}
+
+
+}
+
+
+void transactions() {
+	system("CLS");
+
+	string recipientName;
+	int amount;
+
+	
+	cout << "Enter the name of the recipient: ";
+	cin >> recipientName;
+
+	
+	cout << "Enter the amount to send: ";
+	cin >> amount;
+
+	
+	if (amount <= userBalance && amount > 0) {
+		
+		userBalance -= amount;
+
+		
+		cout << "Transfer to " << recipientName << " of " << amount << " lv is successful." << endl;
+	}
+	else {
+		
+		cout << "Transaction failed. Please check your balance and the entered amount." << endl;
+	}
+
+	while (true) {
+		if (GetAsyncKeyState(VK_ESCAPE) & 0x8000) {
+			cout << "Esc key pressed. Exiting..." << std::endl;
+			system("cls");
+			break;
+		}
+	}
+}
+
+
+void app(const string& username) {
+	system("cls");
+	centerText("Welcome, " + username + "!");
+	
+
+	int selectedOption = 0;
+	char pressedKey = ' ';
+	bool exitStatement = true;
+	string options[] = { "My Balance", "My Will", "Transactions",  "Logout"};
+
+	printMenuOptions(options, selectedOption);
+
+	while (exitStatement)
+	{
+		pressedKey = _getch();
+
+
+		if (selectedOption != 0 && pressedKey == (char)72)
+		{
+			selectedOption--;
+		}
+
+
+		if (selectedOption != 2 && pressedKey == (char)80)
+		{
+			selectedOption++;
+		}
+
+		printMenuOptions(options, selectedOption);
+
+
+		if (pressedKey == '\r')
+		{
+			switch (selectedOption)
+			{
+
+			case 0:
+				system("CLS");
+				balance();
+				break;
+
+			case 1:
+				system("CLS");
+				cout << "will";
+				break;
+
+			case 2:
+				system("CLS");
+				transactions();
+				break;
+
+
+			default:
+				system("CLS");
+				break;
+			}
+		}
+	}
+
+	while (true) {
+		if (GetAsyncKeyState(VK_ESCAPE) & 0x8000) {
+			cout << "Esc key pressed. Exiting..." << endl;
+			system("cls");
 			break;  
 		}
 	}
+
 }
 
 void login()
