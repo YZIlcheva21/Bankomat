@@ -2,6 +2,7 @@
 #include <iostream>
 #include <iomanip>
 #include <string>
+#include <limits>
 #include <windows.h>
 #include <stdlib.h>
 #include <conio.h.>
@@ -123,6 +124,40 @@ void transactions() {
 }
 
 
+void updateBalance(int& balance, int amount) {
+	balance += amount;
+}
+
+void will() {
+	system("CLS");
+
+	string inheritorFullName;
+	int amountToLeave;
+
+	
+	cout << "Enter the full name of the person to inherit your money: ";
+	cin.ignore();  
+	getline(cin, inheritorFullName);
+
+	
+	cout << "Enter the amount to leave for " << inheritorFullName << ": ";
+	cin >> amountToLeave;
+
+	
+	updateBalance(userBalance, -amountToLeave);
+
+	
+	cout << "Your will is successfully processed. " << inheritorFullName << " will inherit " << amountToLeave << " lv." << endl;
+
+	while (true) {
+		if (GetAsyncKeyState(VK_ESCAPE) & 0x8000) {
+			cout << "Esc key pressed. Exiting..." << std::endl;
+			system("cls");
+			break;
+		}
+	}
+}
+
 void app(const string& username) {
 	system("cls");
 	centerText("Welcome, " + username + "!");
@@ -166,7 +201,7 @@ void app(const string& username) {
 
 			case 1:
 				system("CLS");
-				cout << "will";
+				will();
 				break;
 
 			case 2:
@@ -218,6 +253,8 @@ void login()
 		}
 	}
 }
+
+
 
 
 void mainMenu(string menuOptions[])
@@ -276,6 +313,9 @@ void mainMenu(string menuOptions[])
 		}
 	}
 }
+
+
+
 
 int main()
 {
