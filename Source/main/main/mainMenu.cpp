@@ -25,6 +25,26 @@ void printMenuOptions(string menuOptions[], int selectedOption)
 	}
 }
 
+void printAppOptions(string menuOptions[], int selectedOption)
+{
+	for (int i = 0; i < 4; i++)
+	{
+
+		if (i == selectedOption)
+		{
+			outputPosition(1, i + 1);
+			cout << "-> " << menuOptions[i];
+		}
+
+
+		else
+		{
+			outputPosition(1, i + 1);
+			cout << "   " << menuOptions[i];
+		}
+	}
+}
+
 void mainMenu(string menuOptions[])
 {
 
