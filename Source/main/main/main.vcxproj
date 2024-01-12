@@ -127,13 +127,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="app.cpp" />
+    <ClCompile Include="bankOperations.cpp" />
     <ClCompile Include="main-menu.cpp" />
-    <ClCompile Include="main.cpp" />
+    <ClCompile Include="mainMenu.cpp" />
+    <ClCompile Include="output.cpp" />
+    <ClCompile Include="programLogic.cpp" />
+    <ClCompile Include="user.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="app.h" />
-    <ClInclude Include="main-menu.h" />
+    <ClInclude Include="bankOperations.h" />
+    <ClInclude Include="mainMenu.h" />
+    <ClInclude Include="output.h" />
+    <ClInclude Include="programLogic.h" />
+    <ClInclude Include="user.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
