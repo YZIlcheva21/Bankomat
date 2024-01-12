@@ -21,7 +21,7 @@ void registerUser() {
 
 	while (true) {
 		if (GetAsyncKeyState(VK_ESCAPE) & 0x8000) {
-			cout << "Esc key pressed. Exiting..." << std::endl;
+			cout << "Esc key pressed. Exiting..." << endl;
 			system("cls");
 			break;
 		}
@@ -48,7 +48,7 @@ void login()
 
 	while (true) {
 		if (GetAsyncKeyState(VK_ESCAPE) & 0x8000) {
-			cout << "Esc key pressed. Exiting..." << std::endl;
+			cout << "Esc key pressed. Exiting..." << endl;
 			system("cls");
 			break;
 		}

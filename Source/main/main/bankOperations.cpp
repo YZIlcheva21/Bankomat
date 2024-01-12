@@ -12,7 +12,7 @@ void balance() {
 
 	while (true) {
 		if (GetAsyncKeyState(VK_ESCAPE) & 0x8000) {
-			cout << "Esc key pressed. Exiting..." << std::endl;
+			cout << "Esc key pressed. Exiting..." << endl;
 			system("cls");
 			break;
 		}
@@ -50,7 +50,7 @@ void transactions() {
 
 	while (true) {
 		if (GetAsyncKeyState(VK_ESCAPE) & 0x8000) {
-			cout << "Esc key pressed. Exiting..." << std::endl;
+			cout << "Esc key pressed. Exiting..." << endl;
 			system("cls");
 			break;
 		}
@@ -77,10 +77,20 @@ void will() {
 	cin >> amountToLeave;
 
 
-	updateBalance(userBalance, -amountToLeave);
+	
+	
+	if (amountToLeave <= userBalance && amountToLeave > 0) {
+
+		updateBalance(userBalance, -amountToLeave);
 
 
-	cout << "Your will is successfully processed. " << inheritorFullName << " will inherit " << amountToLeave << " lv." << endl;
+		cout << "Transfer to " << inheritorFullName << " of " << amountToLeave << " lv is successful." << endl;
+	}
+	else {
+
+		cout << "Transaction failed. Please check your balance and the entered amount." << endl;
+	}
+	
 
 	while (true) {
 		if (GetAsyncKeyState(VK_ESCAPE) & 0x8000) {
