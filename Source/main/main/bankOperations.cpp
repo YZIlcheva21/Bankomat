@@ -5,6 +5,7 @@
 using namespace std;
 
 int userBalance = 10000;
+int newBalance = userBalance;
 
 void balance() {
 	system("CLS");
@@ -35,8 +36,7 @@ void transactions() {
 	cout << "Enter the amount to send: ";
 	cin >> amount;
 
-
-	if (amount <= userBalance && amount > 0) {
+	if (amount <= userBalance && amount >= 0) {
 
 		userBalance -= amount;
 
@@ -66,7 +66,7 @@ void will() {
 
 	string inheritorFullName;
 	int amountToLeave;
-
+	
 
 	cout << "Enter the full name of the person to inherit your money: ";
 	cin.ignore();
@@ -75,20 +75,20 @@ void will() {
 
 	cout << "Enter the amount to leave for " << inheritorFullName << ": ";
 	cin >> amountToLeave;
-
+	
 
 	
 	
-	if (amountToLeave <= userBalance && amountToLeave > 0) {
+	if (amountToLeave <= newBalance && amountToLeave > 0) {
+		
+		updateBalance(newBalance, -amountToLeave);
 
-		updateBalance(userBalance, -amountToLeave);
 
-
-		cout << "Transfer to " << inheritorFullName << " of " << amountToLeave << " lv is successful." << endl;
+		cout << inheritorFullName << " will inherit " << amountToLeave << " lv." << endl;
 	}
 	else {
 
-		cout << "Transaction failed. Please check your balance and the entered amount." << endl;
+		cout << "Not enough money. Please check your balance and the entered amount." << endl;
 	}
 	
 
