@@ -4,6 +4,7 @@
 #include "user.h"
 
 using namespace std;
+
 void printWelcomeMessage() {
 	cout << R"(
  ___       __   _______   ___       ________  ________  _____ ______   _______           _________  ________          ________  ________  ________   ___  __    ________  _____ ______   ________  _________   
@@ -25,6 +26,7 @@ void printWelcomeMessage() {
 	cout << endl;
 
 }
+
 void printMenuOptions(string menuOptions[], int selectedOption)
 {
 
