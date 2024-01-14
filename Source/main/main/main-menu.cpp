@@ -7,10 +7,16 @@ using namespace std;
 int main()
 {
 	system("CLS");
+	
 
-	string mainMenuOptions[] = { "Log in", "Register", "Exit" }; 
-	centerText("-----------------------------");
-	centerText("Welcome to Bankomat!");
-	centerText("-----------------------------");
+	string mainMenuOptions[] = { "Log in", "Register", "Exit" };
+	cout << endl;
+	cout << endl;
+	cout << endl;
+	cout << endl;
+	printWelcomeMessage();
+	
+	
 	mainMenu(mainMenuOptions);
+	
 }
