@@ -90,8 +90,7 @@ void mainMenu(string menuOptions[])
 
 			case 2:
 				exitStatement = false;
-				system("CLS");
-				cout << "Press any key to exit";
+				exit(0);
 				break;
 
 			default:
