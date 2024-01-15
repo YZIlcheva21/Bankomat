@@ -2,6 +2,7 @@
 #include <conio.h>
 #include "output.h"
 #include "user.h"
+#include <Windows.h>
 
 using namespace std;
 
@@ -18,54 +19,45 @@ void printWelcomeMessage() {
                                                                                                                                                                                                                
                                                                                                                                                                                                                
 )";
-	cout << endl;
-	cout << endl;
-	cout << endl;
-	cout << endl;
-	cout << endl;
-	cout << endl;
-
 }
 
-void printMenuOptions(string menuOptions[], int selectedOption)
-{
+void printMenuOptions(string menuOptions[], int selectedOption) {
+	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
-	for (int i = 0; i < 3; i++)
-	{
+	for (int i = 0; i < 3; i++) {
+		outputPosition(1, i + 1);
 
-		if (i == selectedOption)
-		{
-			outputPosition(1, i + 1);
+		if (i == selectedOption) {
+			SetConsoleTextAttribute(hConsole, FOREGROUND_GREEN);
 			cout << "-> " << menuOptions[i];
 		}
-
-
-		else
-		{
-			outputPosition(1, i + 1);
+		else {
+			SetConsoleTextAttribute(hConsole, FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
 			cout << "   " << menuOptions[i];
 		}
 	}
+
+	// Reset text color to default
+	SetConsoleTextAttribute(hConsole, FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
 }
 
-void printAppOptions(string menuOptions[], int selectedOption)
-{
-	for (int i = 0; i < 4; i++)
-	{
+void printAppOptions(string menuOptions[], int selectedOption) {
+	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
-		if (i == selectedOption)
-		{
-			outputPosition(1, i + 1);
+	for (int i = 0; i < 4; i++) {
+		outputPosition(1, i + 1);
+
+		if (i == selectedOption) {
+			SetConsoleTextAttribute(hConsole, FOREGROUND_GREEN);
 			cout << "-> " << menuOptions[i];
 		}
-
-
-		else
-		{
-			outputPosition(1, i + 1);
+		else {
+			SetConsoleTextAttribute(hConsole, FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
 			cout << "   " << menuOptions[i];
 		}
 	}
+
+	SetConsoleTextAttribute(hConsole, FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
 }
 
 void mainMenu(string menuOptions[])
