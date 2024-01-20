@@ -1,6 +1,8 @@
 #include <iostream>
+#include <windows.h>
 #include "output.h"
 #include "mainMenu.h"
+#include "user.h"
 
 using namespace std;
 

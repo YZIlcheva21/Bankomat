@@ -1,10 +1,12 @@
 #pragma once
+#include <iostream>
+using namespace std;
 
 //Displays the user's current balance
 void balance();
 
 //Facilitates money transactions, allowing the user to send money to a recipient
-void transactions();
+void transactions(const string& username);
 
 //Updates the user's balance by adding or subtracting the specified amount
 void updateBalance(int& balance, int amount);

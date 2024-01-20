@@ -11,5 +11,4 @@ void printAppOptions(string menuOptions[], int selectedOption);
 //Displays the main menu and handles user input to navigate through options
 void mainMenu(string menuOptions[]);
 
-//Prints welcome message
 void printWelcomeMessage();

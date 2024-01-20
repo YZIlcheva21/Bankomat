@@ -1,6 +1,7 @@
 #include <iostream>
 #include <windows.h>
 #include <string>
+#include "user.h"
 
 using namespace std;
 
@@ -22,19 +23,30 @@ void balance() {
 
 }
 
-void transactions() {
+void transactions(const string& username) {
 	system("CLS");
 
 	string recipientName;
 	int amount;
 
-
 	cout << "Enter the name of the recipient: ";
 	cin >> recipientName;
 
 
+	if (!checkLoginTransaction(recipientName) ){
+		cout << "Recipient not found. Transaction failed." << endl;
+		while (true) {
+			if (GetAsyncKeyState(VK_ESCAPE) & 0x8000) {
+				cout << "Esc key pressed. Exiting..." << endl;
+				system("cls");
+				break;
+			}
+		}
+	}
+
 	cout << "Enter the amount to send: ";
 	cin >> amount;
+
 
 	if (amount <= userBalance && amount >= 0) {
 
@@ -44,7 +56,6 @@ void transactions() {
 		cout << "Transfer to " << recipientName << " of " << amount << " lv is successful." << endl;
 	}
 	else {
-
 		cout << "Transaction failed. Please check your balance and the entered amount." << endl;
 	}
 

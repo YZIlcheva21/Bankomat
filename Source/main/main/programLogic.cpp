@@ -4,6 +4,7 @@
 #include "output.h"
 #include "bankOperations.h"
 #include "mainMenu.h"
+#include "user.h"
 
 using namespace std;
 
@@ -14,31 +15,31 @@ void app(const string& username) {
     int selectedOption = 0;
     char pressedKey = ' ';
     bool exitStatement = true;
-    
-    string options[] = { "My Balance", "My Will", "Transactions", "Logout"};
-    
+
+    string options[] = { "My Balance", "My Will", "Transactions", "Logout" };
+
     printAppOptions(options, selectedOption);
 
     string mainMenuOptions[] = { "Log in", "Register", "Exit" };
 
     while (exitStatement)
     {
-        
+
         printAppOptions(options, selectedOption);
 
         pressedKey = _getch();
 
-        if (pressedKey == (char)72 && selectedOption > 0) 
+        if (pressedKey == (char)72 && selectedOption > 0)
         {
             selectedOption--;
         }
 
-        if (pressedKey == (char)80 && selectedOption < 3) 
+        if (pressedKey == (char)80 && selectedOption < 3)
         {
             selectedOption++;
         }
 
-       
+
         printMenuOptions(options, selectedOption);
 
         if (pressedKey == '\r')
@@ -57,10 +58,10 @@ void app(const string& username) {
 
             case 2:
                 system("CLS");
-                transactions();
+                transactions(username);
                 break;
 
-            case 3:  
+            case 3:
                 system("CLS");
                 mainMenu(mainMenuOptions);
                 break;
