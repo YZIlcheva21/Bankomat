@@ -5,6 +5,7 @@
 
 using namespace std;
 
+// Structure representing user information
 struct UserInfo {
 	string name;
 	string surname;
@@ -12,10 +13,10 @@ struct UserInfo {
 	UserInfo* next;
 };
 
-
+// Global variable to keep track of the head of the user list
 UserInfo* userListHead = nullptr;
 
-
+// Function to add a new user to the linked list
 void addUserToList(const string& name, const string& surname, const string& password) {
 	UserInfo* newUser = new UserInfo;
 	newUser->name = name;
@@ -25,6 +26,7 @@ void addUserToList(const string& name, const string& surname, const string& pass
 	userListHead = newUser;
 }
 
+// Function to check if a user with a given name exists in the list
 bool checkLoginTransaction(const string& name) {
 	UserInfo* current = userListHead;
 	while (current != nullptr) {
@@ -36,6 +38,7 @@ bool checkLoginTransaction(const string& name) {
 	return false;
 }
 
+// Function to check if a user with a given name and password exists in the list
 bool checkLoginUser(const string& name, const string& password) {
 	UserInfo* current = userListHead;
 	while (current != nullptr) {
@@ -47,6 +50,7 @@ bool checkLoginUser(const string& name, const string& password) {
 	return false;
 }
 
+// Function to register a new user
 void registerUser() {
     string name, surname, password;
     cout << "Enter your name: ";
@@ -69,6 +73,7 @@ void registerUser() {
     }
 }
 
+// Function to handle user login
 void login() {
     string username, password;
     cout << "Enter your username: ";
@@ -76,6 +81,7 @@ void login() {
     cout << "Enter your password: ";
     cin >> password;
 
+    // Check if login is successful
     bool loginSuccess = checkLoginUser(username, password);
     string appOptions[] = { "", "Register", "Exit" };
     if (loginSuccess) {

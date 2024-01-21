@@ -8,6 +8,7 @@
 
 using namespace std;
 
+// Function to print a welcome message with ASCII art
 void printWelcomeMessage() {
 	cout << R"(
  _______    ______   __    __  __    __   ______   __       __   ______   ________ 
@@ -25,6 +26,7 @@ $$$$$$$/  $$/   $$/ $$/   $$/ $$/   $$/  $$$$$$/  $$/      $$/ $$/   $$/    $$/
 )";
 }
 
+// Function to print menu options with highlighting for the selected option
 void printMenuOptions(string menuOptions[], int selectedOption) {
 	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
@@ -45,6 +47,7 @@ void printMenuOptions(string menuOptions[], int selectedOption) {
 	SetConsoleTextAttribute(hConsole, FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
 }
 
+// Function to print application options with highlighting for the selected option
 void printAppOptions(string menuOptions[], int selectedOption) {
 	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
@@ -64,6 +67,7 @@ void printAppOptions(string menuOptions[], int selectedOption) {
 	SetConsoleTextAttribute(hConsole, FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
 }
 
+// Main menu function allowing user interaction
 void mainMenu(string menuOptions[])
 {
 

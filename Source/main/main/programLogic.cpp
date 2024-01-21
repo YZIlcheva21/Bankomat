@@ -8,6 +8,7 @@
 
 using namespace std;
 
+// Function to handle the main application logic
 void app(const string& username) {
     system("cls");
     centerText("Welcome, " + username + "!");
@@ -22,6 +23,7 @@ void app(const string& username) {
 
     string mainMenuOptions[] = { "Log in", "Register", "Exit" };
 
+    // Main loop for handling user input and navigation
     while (exitStatement)
     {
 
@@ -29,6 +31,7 @@ void app(const string& username) {
 
         pressedKey = _getch();
 
+        // Update the selected option based on arrow key input
         if (pressedKey == (char)72 && selectedOption > 0)
         {
             selectedOption--;

@@ -5,9 +5,10 @@
 
 using namespace std;
 
-int userBalance = 10000;
-int newBalance = userBalance;
+int userBalance = 10000; // Initial user balance
+int newBalance = userBalance; // A separate balance for inheritance
 
+// Function to display user's balance
 void balance() {
 	system("CLS");
 	cout << "Your Current Balance: " << userBalance << " lv.";
@@ -23,6 +24,7 @@ void balance() {
 
 }
 
+// Function to perform transactions
 void transactions(const string& username) {
 	system("CLS");
 
@@ -32,7 +34,7 @@ void transactions(const string& username) {
 	cout << "Enter the name of the recipient: ";
 	cin >> recipientName;
 
-
+	// Check if the recipient exists
 	if (!checkLoginTransaction(recipientName) ){
 		cout << "Recipient not found. Transaction failed." << endl;
 		while (true) {
@@ -47,7 +49,7 @@ void transactions(const string& username) {
 	cout << "Enter the amount to send: ";
 	cin >> amount;
 
-
+	// Validate the transaction amount
 	if (amount <= userBalance && amount >= 0) {
 
 		userBalance -= amount;
@@ -68,10 +70,12 @@ void transactions(const string& username) {
 	}
 }
 
+// Function to update balance for inheritance
 void updateBalance(int& balance, int amount) {
 	balance += amount;
 }
 
+// Function to specify inheritance details
 void will() {
 	system("CLS");
 
@@ -83,13 +87,10 @@ void will() {
 	cin.ignore();
 	getline(cin, inheritorFullName);
 
-
 	cout << "Enter the amount to leave for " << inheritorFullName << ": ";
 	cin >> amountToLeave;
 	
-
-	
-	
+	// Validate and update the inheritance amount
 	if (amountToLeave <= newBalance && amountToLeave > 0) {
 		
 		updateBalance(newBalance, -amountToLeave);
