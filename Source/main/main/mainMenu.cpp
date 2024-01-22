@@ -34,7 +34,7 @@ void printMenuOptions(string menuOptions[], int selectedOption) {
 		outputPosition(1, i + 1);
 
 		if (i == selectedOption) {
-			SetConsoleTextAttribute(hConsole, FOREGROUND_GREEN);
+			SetConsoleTextAttribute(hConsole, FOREGROUND_BLUE);
 			cout << "-> " << menuOptions[i];
 		}
 		else {
