@@ -1,10 +1,14 @@
 #include <iostream>
 #include <windows.h>
 #include <cctype>
+#include <conio.h>
 #include "output.h"
 #include "programLogic.h"
 
 using namespace std;
+
+
+
 
 // Structure representing user information
 struct UserInfo {
@@ -16,6 +20,11 @@ struct UserInfo {
 
 // Global variable to keep track of the head of the user list
 UserInfo* userListHead = nullptr;
+
+
+
+
+
 
 // Function to add a new user to the linked list
 void addUserToList(const string& name, const string& surname, const string& password) {
@@ -51,9 +60,13 @@ bool checkLoginUser(const string& name, const string& password) {
 	return false;
 }
 
+
+
+
 // Function to register a new user
 void registerUser() {
     string name, surname, password;
+    char ch;
     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
     cout << "Enter your name: ";
@@ -61,9 +74,22 @@ void registerUser() {
     cout << "Enter your surname: ";
     cin >> surname;
     cout << "Enter your password: ";
-    cin >> password;
 
-    // Password checker
+    // Hide the password while typing it
+    while ((ch = _getch()) != '\r') { 
+        if (ch == 8) { 
+            if (!password.empty()) {
+                password.pop_back();
+                cout << "\b \b"; 
+            }
+        }
+        else {
+            password.push_back(ch);
+            cout << '*';
+        }
+    }
+
+    // Check if the password meets the needed criteria
     if (password.length() >= 12) {
         bool hasUppercase = false;
         bool hasLowercase = false;
@@ -84,15 +110,18 @@ void registerUser() {
         if (hasUppercase && hasLowercase && hasSymbol) {
             addUserToList(name, surname, password);
             SetConsoleTextAttribute(hConsole, FOREGROUND_GREEN);
+            cout << endl;
             centerText("Registration successful! You can log in your account now.");
         }
         else {
             SetConsoleTextAttribute(hConsole, FOREGROUND_RED);
+            cout << endl;
             centerText("Password does not meet the criteria. It has to be atleast 12 characters long,to have uppercase, lowercase and to have atleast 1 symbol.");
         }
     }
     else {
         SetConsoleTextAttribute(hConsole, FOREGROUND_RED);
+        cout << endl;
         centerText("Password does not meet the criteria. It has to be atleast 12 characters long,to have uppercase, lowercase and to have atleast 1 symbol.");
     }
     SetConsoleTextAttribute(hConsole, FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
@@ -109,24 +138,46 @@ void registerUser() {
     }
 }
 
+
+
+
+
+
+
+
 // Function to handle user login
 void login() {
     string username, password;
+    char ch;
     cout << "Enter your username: ";
     cin >> username;
     cout << "Enter your password: ";
-    cin >> password;
+
+    // Hide the password while typing it
+    while ((ch = _getch()) != '\r') {
+        if (ch == 8) {
+            if (!password.empty()) {
+                password.pop_back();
+                cout << "\b \b";
+            }
+        }
+        else {
+            password.push_back(ch);
+            cout << '*';
+        }
+    }
 
     // Check if login is successful
     bool loginSuccess = checkLoginUser(username, password);
     string appOptions[] = { "", "Register", "Exit" };
     if (loginSuccess) {
-
+        cout << endl;
         cout << "Login successful. Welcome, " << username << "!" << endl;
         app(username);
 
     }
     else {
+        cout << endl;
         cout << "Login failed. Please try again." << endl;
     }
 
