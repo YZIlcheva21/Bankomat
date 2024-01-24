@@ -10,9 +10,28 @@ int newBalance = userBalance; // A separate balance for inheritance
 
 // Function to display user's balance
 void balance() {
+	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 	system("CLS");
-	cout << "Your Current Balance: " << userBalance << " lv.";
-
+	cout << "Your Current Balance: ";
+	SetConsoleTextAttribute(hConsole, FOREGROUND_GREEN);
+	cout << userBalance << " lv." << endl;
+	cout << R"(                                                                                                                                             
+               .-----------------------------------------------.               
+               .******-----------------------------------******.               
+               .*****=------------------------------------*****.               
+               .**+=------------------=*=------------------=+**.               
+               .*=------------------=+***+=------------------=*.               
+               .*=-----------------=*+---=+=-----------------=*.               
+               .*=------=**+=------=**+=----------+**+-------=*.               
+               .*=------****+-------=++****=-----=****=------=*.               
+               .*=-------=+=--------------+*-------=+=-------=*.               
+               .*=-----------------+*=---=*+-----------------=*.               
+               .*=-------------------=+*++-------------------=*.               
+               .***+=-----------------=+=------------------+***.               
+               .*****+-----------------------------------=*****.               
+               .***********************************************.               
+)";
+	SetConsoleTextAttribute(hConsole, FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
 	while (true) {
 		if (GetAsyncKeyState(VK_ESCAPE) & 0x8000) {
 			cout << "Esc key pressed. Exiting..." << endl;

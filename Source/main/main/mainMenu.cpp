@@ -70,7 +70,7 @@ void printAppOptions(string menuOptions[], int selectedOption) {
 // Main menu function allowing user interaction
 void mainMenu(string menuOptions[])
 {
-
+	 
 	int selectedOption = 0;
 	char pressedKey = ' ';
 	bool exitStatement = true;
